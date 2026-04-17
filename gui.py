@@ -59,6 +59,9 @@ class Ui_Form(object):
         self.label_5 = QtWidgets.QLabel(parent=Form)
         self.label_5.setGeometry(QtCore.QRect(160, 280, 401, 81))
         self.label_5.setObjectName("label_5")
+        self.pushButton = QtWidgets.QPushButton(parent=Form)
+        self.pushButton.setGeometry(QtCore.QRect(460, 40, 113, 32))
+        self.pushButton.setObjectName("pushButton")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -77,13 +80,4 @@ class Ui_Form(object):
         self.radioButton_6.setText(_translate("Form", "Alphabet"))
         self.label_4.setText(_translate("Form", "Output: "))
         self.label_5.setText(_translate("Form", "Output will be displayed here. "))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec())
+        self.pushButton.setText(_translate("Form", "Submit"))
