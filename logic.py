@@ -19,7 +19,15 @@ class Logic(QMainWindow, Ui_Form):
             self.label_5.setText("") #clear output before new output is put in
 
             if in_type == "Alphabet" and out_type == "Binary":
-               self.label_5.setText(str_binary(inn))
+               output = str_binary(inn)
+               counter = 0
+               for i in output: 
+                    if counter % 8 == 0 and counter != 0:
+                        output1 = output[:counter] + " " + output[counter:]
+                        output = output1
+                    counter += 1
+               self.label_5.setText(output)
+
             elif in_type == "Binary" and out_type == "Alphabet":
                self.label_5.setText(binary_str(inn))
             elif in_type == "DNA Bases" and out_type == "Binary":
@@ -44,8 +52,7 @@ def binary_str(inp):
     print("binary to string")
     print(inp)
     output = chr(int(inp, 2)) # google gemini. also this is unicode, but its the same for regular ascii stuff so its good for my purposes.  
-
-
+    
     try: 
         return output
     except ValueError:
