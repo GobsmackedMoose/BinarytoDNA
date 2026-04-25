@@ -54,8 +54,12 @@ class Logic(QMainWindow, Ui_Form):
             with open("files" + os.sep + "output.csv", 'w', newline='') as file:
                 new_text = csv.writer(file)
                 new_text.writerow(['Input','Function Used', 'Output'])
+                new_text.writerow([inn, f"{in_type} to {out_type}", self.label_5.text()])
          else:
-            
+            with open("files" + os.sep + "output.csv", 'a', newline='') as file:
+                new_text = csv.writer(file)
+                new_text.writerow(['Input','Function Used', 'Output'])
+                new_text.writerow([inn, f"{in_type} to {out_type}", self.label_5.text()])
         
 
 
