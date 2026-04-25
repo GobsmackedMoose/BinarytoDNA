@@ -39,9 +39,10 @@ class Logic(QMainWindow, Ui_Form):
             else: 
                 raise ValueError("Invalid input/output type. Select an Input and Output type. Do not use the same type for both input and output.")
          except ValueError as v:
-             self.label_5.setText(f"Error: {str(v)} Please correct the input and try again.")
+             self.label_5.setText(f"{str(v)}")
          except UnboundLocalError:
-                self.label_5.setText("Please select input and output types.")
+            self.label_5.setText("Please select input and output types.")
+            return 
          except Exception as e:
             self.label_5.setText(f"An error occurred: {str(e)}")
 
@@ -66,8 +67,10 @@ class Logic(QMainWindow, Ui_Form):
 def binary_str(inp):
     print("binary to string")
     print(inp)
-    output = chr(int(inp, 2)) # google gemini. also this is unicode, but its the same for regular ascii stuff so its good for my purposes.  
-    
+    try: 
+        output = chr(int(inp, 2)) # google gemini. also this is unicode, but its the same for regular utf 8 stuff so its good for my purposes. does allow for some odd characters but i will allow freedom of expression today.  
+    except ValueError:
+        raise ValueError("Invalid binary input. Please ensure the input is valid binary and is an appropriate length (each letter is 8 bits)")
     try: 
         return output
     except ValueError:
@@ -107,7 +110,7 @@ def binary_dna(inp): #works
         elif pair == "01":
             outp += "Guanine, "
         else:
-            raise ValueError(f"Invalid binary pair: {pair}. Each pair must be 00, 11, 10, or 01.")
+            raise ValueError(f"Invalid binary input. Please ensure the input is valid binary.")
     return outp[:-2]  # Remove the trailing comma
 
 def str_dna(inp): # works
@@ -116,4 +119,4 @@ def str_dna(inp): # works
 
 def dna_str(inp): # works
     inp = dna_binary(inp)
-    return binary_str(inp) #https://www.askpython.com/python/examples/binary-to-utf8-conversion for encode 
+    return binary_str(inp) 

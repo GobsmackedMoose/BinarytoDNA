@@ -15,3 +15,38 @@ gffgdgfdsfdgfdgfgd,Alphabet to Binary,01100111 01100110 01100110 01100111 011001
 gffgdgfdsfdgfdgfgd,Alphabet to Alphabet,Invalid input. Please try again. Error: Invalid input/output type. Do not use the same type for both input and output.
 ,Alphabet to Alphabet,Error: Invalid input/output type. Do not use the same type for both input and output. + Please correct the input and try again.
 ,Alphabet to Alphabet,Error: Invalid input/output type. Do not use the same type for both input and output. + Please correct the input and try again.
+fgdghfjkjhgfhfjhfd,Alphabet to Binary,01100110 01100111 01100100 01100111 01101000 01100110 01101010 01101011 01101010 01101000 01100111 01100110 01101000 01100110 01101010 01101000 01100110 01100100
+fgdghfjkjhgfhfjhfd,Binary to Binary,Error: Invalid input/output type. Select an Input and Output type. Do not use the same type for both input and output. Please correct the input and try again.
+fgdghfjkjhgfhfjhfd,Binary to Alphabet,Error: invalid literal for int() with base 2: 'fgdghfjkjhgfhfjhfd' Please correct the input and try again.
+fgdghfjkjhgfhfjhfd,Binary to DNA Bases,"Error: Invalid binary pair: fg. Each pair must be 00, 11, 10, or 01. Please correct the input and try again."
+fgdghfjkjhgfhfjhfd,Binary to DNA Bases,"Error: Invalid binary pair: fg. Each pair must be 00, 11, 10, or 01. Please correct the input and try again."
+010101,Binary to DNA Bases,"Guanine, Guanine, Guanine"
+01010111,Binary to DNA Bases,"Guanine, Guanine, Guanine, Thymine"
+0101011111,Binary to Alphabet,ş
+01010111111111 10101111,Binary to Alphabet,Error: invalid literal for int() with base 2: '01010111111111 10101111' Please correct the input and try again.
+0101011111111110101111,Binary to Alphabet,Error: chr() arg not in range(0x110000) Please correct the input and try again.
+dffdsfdsfdsfdasfads,Binary to DNA Bases,Incorrect Input for Input Type. Please correct the input and try again.
+dffdsfdsfdsfdasfads,Binary to Binary,Incorrect Input for Input Type. Please correct the input and try again.
+dffdsfdsfdsfdasfads,Alphabet to Binary,01100100 01100110 01100110 01100100 01110011 01100110 01100100 01110011 01100110 01100100 01110011 01100110 01100100 01100001 01110011 01100110 01100001 01100100 01110011
+dffdsfdsfdsfdasfads,Alphabet to Alphabet,Incorrect Input for Input Type. Please correct the input and try again.
+dffdsfdsfdsfdasfads,Alphabet to DNA Bases,"Guanine, Cytosine, Guanine, Adenine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Adenine, Guanine, Thymine, Adenine, Thymine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Adenine, Guanine, Thymine, Adenine, Thymine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Adenine, Guanine, Thymine, Adenine, Thymine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Adenine, Guanine, Cytosine, Adenine, Guanine, Guanine, Thymine, Adenine, Thymine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Adenine, Guanine, Guanine, Cytosine, Guanine, Adenine, Guanine, Thymine, Adenine, Thymine"
+dffdsfdsfdsfdasfads,Alphabet to Alphabet,Incorrect Input for Input Type. Please correct the input and try again.
+010111,Binary to DNA Bases,"Guanine, Guanine, Thymine"
+0101111111,Binary to DNA Bases,"Guanine, Guanine, Thymine, Thymine, Thymine"
+01011111111,Binary to DNA Bases,Incorrect Input for Input Type or Input and Output Types are the same. Do not use the same type for both input and output. Please correct the input and try again.
+rffdfdsfdsfsdsfdsdaf,DNA Bases to Alphabet,"Invalid DNA base: rffdfdsfdsfsdsfdsdaf. Please enter Adenine, Thymine, Cytosine, or Guanine."
+rffdfdsfdsfsdsfdsdaf,DNA Bases to DNA Bases,Invalid input/output type. Select an Input and Output type. Do not use the same type for both input and output.
+rffdfdsfdsfsdsfdsdaf,DNA Bases to Binary,"Invalid DNA base: rffdfdsfdsfsdsfdsdaf. Please enter Adenine, Thymine, Cytosine, or Guanine."
+"Adenine, Thymine",DNA Bases to Binary,0011
+"Adenine, Thymine",DNA Bases to Alphabet,
+"Adenine, Thymine, Thymine, Adenine",DNA Bases to Alphabet,<
+"Adenine, Thymine, Thymine, Adenine",Binary to Alphabet,Invalid binary input. Please ensure the input is valid binary and is an appropriate length (each letter is 8 bits)
+011,Binary to Alphabet,
+0111,Binary to Alphabet,
+01111111,Binary to Alphabet,
+011111111,Binary to Alphabet,ÿ
+0111111111,Binary to Alphabet,ǿ
+01111111111,Binary to Alphabet,Ͽ
+01111111111,Binary to Alphabet,Ͽ
+011111111111,Binary to Alphabet,߿
+011111111111,Binary to Alphabet,߿
