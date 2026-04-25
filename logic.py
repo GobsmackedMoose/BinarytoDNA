@@ -23,12 +23,7 @@ class Logic(QMainWindow, Ui_Form):
 
             if in_type == "Alphabet" and out_type == "Binary":
                output = str_binary(inn)
-               counter = 0
-               for i in output: 
-                    if counter % 8 == 0 and counter != 0:
-                        output1 = output[:counter] + " " + output[counter:]
-                        output = output1
-                    counter += 1
+               output = " ".join(output[i:i+8] for i in range(0, len(output), 8))
                self.label_5.setText(output)
 
             elif in_type == "Binary" and out_type == "Alphabet":
@@ -41,8 +36,10 @@ class Logic(QMainWindow, Ui_Form):
                self.label_5.setText(str_dna(inn))
             elif in_type == "DNA Bases" and out_type == "Alphabet":
                self.label_5.setText(dna_str(inn))
+            else: 
+                raise ValueError("Invalid input/output type. Select an Input and Output type. Do not use the same type for both input and output.")
          except ValueError as v:
-             self.label_5.setText(f"Invalid input. Please try again. Error: {str(v)}")
+             self.label_5.setText(f"Error: {str(v)} Please correct the input and try again.")
          except UnboundLocalError:
                 self.label_5.setText("Please select input and output types.")
          except Exception as e:
@@ -50,15 +47,17 @@ class Logic(QMainWindow, Ui_Form):
 
         #file writer
 
-         if os.path.isfile("files" + os.sep +"output.csv"):
-            with open("files" + os.sep + "output.csv", 'w', newline='') as file:
+         if os.path.isfile("output.csv"):
+
+            with open("output.csv", 'a', newline='') as file:
                 new_text = csv.writer(file)
-                new_text.writerow(['Input','Function Used', 'Output'])
                 new_text.writerow([inn, f"{in_type} to {out_type}", self.label_5.text()])
          else:
-            with open("files" + os.sep + "output.csv", 'a', newline='') as file:
+            
+            with open("output.csv", 'w', newline='') as file:
                 new_text = csv.writer(file)
                 new_text.writerow(['Input','Function Used', 'Output'])
+
                 new_text.writerow([inn, f"{in_type} to {out_type}", self.label_5.text()])
         
 
