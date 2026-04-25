@@ -16,7 +16,7 @@ class Logic(QMainWindow, Ui_Form):
             self.label_5.setText("Please select input and output types.")
          try: 
             self.label_5.setWordWrap(True)
-            self.label_5.setText(f'{in_type}  {out_type}') #clear output before new output is put in
+            self.label_5.setText("") #clear output before new output is put in
 
             if in_type == "Alphabet" and out_type == "Binary":
                self.label_5.setText(str_binary(inn))
@@ -30,9 +30,12 @@ class Logic(QMainWindow, Ui_Form):
                self.label_5.setText(str_dna(inn))
             elif in_type == "DNA Bases" and out_type == "Alphabet":
                self.label_5.setText(dna_str(inn))
-         except:
+         except ValueError:
              self.label_5.setText("Invalid input. Please try again.")
-
+         except UnboundLocalError:
+                self.label_5.setText("Please select input and output types.")
+         except Exception as e:
+            self.label_5.setText(f"An error occurred: {str(e)}")
         
 
 
@@ -52,13 +55,13 @@ def dna_binary(inp):
     inp = inp.lower().split(",")
     outp = ""
     for i in inp:
-        if i == "adenine":
+        if i.strip() == "adenine":
             outp += "00"
-        elif i == "thymine":
+        elif i.strip() == "thymine":
             outp += "11"
-        elif i == "cytosine":
+        elif i.strip() == "cytosine":
             outp += "10"
-        elif i == "guanine":
+        elif i.strip() == "guanine":
             outp += "01"
     return outp
 
