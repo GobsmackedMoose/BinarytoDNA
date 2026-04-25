@@ -46,12 +46,12 @@ def binary_str(inp):
     
     return chr(int(inp, 2)) # google gemini 
 
-def str_binary(inp):
+def str_binary(inp): #works
     out = ''.join(format(ord(char), '08b') for char in inp)
     return out
     #source: https://www.geeksforgeeks.org/python/python-convert-string-to-binary/ 
 
-def dna_binary(inp):
+def dna_binary(inp): # works
     inp = inp.lower().split(",")
     outp = ""
     for i in inp:
@@ -65,7 +65,7 @@ def dna_binary(inp):
             outp += "01"
     return outp
 
-def binary_dna(inp):
+def binary_dna(inp): #works
     outp = ""
     for i in range(0, len(inp), 2):
         pair = inp[i:i+2]
@@ -79,10 +79,10 @@ def binary_dna(inp):
             outp += "Guanine, "
     return outp[:-2]  # Remove the trailing comma
 
-def str_dna(inp):
+def str_dna(inp): # works
     inp = str_binary(inp)
     return binary_dna(inp)
 
-def dna_str(inp):
+def dna_str(inp): # works
     inp = dna_binary(inp)
-    return binary_str(inp.encode('utf-8')) #https://www.askpython.com/python/examples/binary-to-utf8-conversion for encode 
+    return binary_str(inp) #https://www.askpython.com/python/examples/binary-to-utf8-conversion for encode 
