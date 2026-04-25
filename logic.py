@@ -1,3 +1,6 @@
+import csv
+import os
+
 from PyQt6.QtWidgets import *
 from gui import *
 
@@ -44,6 +47,15 @@ class Logic(QMainWindow, Ui_Form):
                 self.label_5.setText("Please select input and output types.")
          except Exception as e:
             self.label_5.setText(f"An error occurred: {str(e)}")
+
+        #file writer
+
+         if os.path.isfile("files" + os.sep +"output.csv"):
+            with open("files" + os.sep + "output.csv", 'w', newline='') as file:
+                new_text = csv.writer(file)
+                new_text.writerow(['Input','Function Used', 'Output'])
+         else:
+            
         
 
 
