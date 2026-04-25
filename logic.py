@@ -9,24 +9,31 @@ class Logic(QMainWindow, Ui_Form):
         
      def sub(self):
          inn = self.lineEdit.text()
-         in_type = self.buttonGroup.checkedButton().text()
-         out_type = self.buttonGroup_2.checkedButton().text()
+         try:
+            in_type = self.buttonGroup.checkedButton().text()
+            out_type = self.buttonGroup_2.checkedButton().text()
+         except:
+            self.label_5.setText("Please select input and output types.")
          try: 
-            self.label_5.setText("hi?") #clear output before new output is put in
-            if in_type == "String" and out_type == "Binary":
+            self.label_5.setWordWrap(True)
+            self.label_5.setText(f'{in_type}  {out_type}') #clear output before new output is put in
+
+            if in_type == "Alphabet" and out_type == "Binary":
                self.label_5.setText(str_binary(inn))
-            elif in_type == "Binary" and out_type == "String":
+            elif in_type == "Binary" and out_type == "Alphabet":
                self.label_5.setText(binary_str(inn))
-            elif in_type == "DNA" and out_type == "Binary":
+            elif in_type == "DNA Bases" and out_type == "Binary":
                self.label_5.setText(dna_binary(inn))
-            elif in_type == "Binary" and out_type == "DNA":
+            elif in_type == "Binary" and out_type == "DNA Bases":
                self.label_5.setText(binary_dna(inn))
-            elif in_type == "String" and out_type == "DNA":
+            elif in_type == "Alphabet" and out_type == "DNA Bases":
                self.label_5.setText(str_dna(inn))
-            elif in_type == "DNA" and out_type == "String":
+            elif in_type == "DNA Bases" and out_type == "Alphabet":
                self.label_5.setText(dna_str(inn))
          except:
              self.label_5.setText("Invalid input. Please try again.")
+
+        
 
 
 

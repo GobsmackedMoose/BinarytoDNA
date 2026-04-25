@@ -9,3 +9,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+# save the input/output to a file

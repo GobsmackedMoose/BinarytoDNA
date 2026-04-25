@@ -57,7 +57,7 @@ class Ui_Form(object):
         self.label_4.setGeometry(QtCore.QRect(90, 280, 60, 16))
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(parent=Form)
-        self.label_5.setGeometry(QtCore.QRect(160, 280, 401, 81))
+        self.label_5.setGeometry(QtCore.QRect(160, 280, 600, 150))
         self.label_5.setObjectName("label_5")
         self.pushButton = QtWidgets.QPushButton(parent=Form)
         self.pushButton.setGeometry(QtCore.QRect(460, 40, 113, 32))
