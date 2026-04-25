@@ -30,8 +30,8 @@ class Logic(QMainWindow, Ui_Form):
                self.label_5.setText(str_dna(inn))
             elif in_type == "DNA Bases" and out_type == "Alphabet":
                self.label_5.setText(dna_str(inn))
-         except ValueError:
-             self.label_5.setText("Invalid input. Please try again.")
+         except ValueError as v:
+             self.label_5.setText(f"Invalid input. Please try again. Error: {str(v)}")
          except UnboundLocalError:
                 self.label_5.setText("Please select input and output types.")
          except Exception as e:
@@ -43,8 +43,13 @@ class Logic(QMainWindow, Ui_Form):
 def binary_str(inp):
     print("binary to string")
     print(inp)
-    
-    return chr(int(inp, 2)) # google gemini 
+    output = chr(int(inp, 2)) # google gemini. also this is unicode, but its the same for regular ascii stuff so its good for my purposes.  
+
+
+    try: 
+        return output
+    except ValueError:
+        raise ValueError("Invalid binary input. Please ensure the input is valid binary.")
 
 def str_binary(inp): #works
     out = ''.join(format(ord(char), '08b') for char in inp)
@@ -63,6 +68,8 @@ def dna_binary(inp): # works
             outp += "10"
         elif i.strip() == "guanine":
             outp += "01"
+        else:
+            raise ValueError(f"Invalid DNA base: {i.strip()}. Please enter Adenine, Thymine, Cytosine, or Guanine.")
     return outp
 
 def binary_dna(inp): #works
@@ -77,6 +84,8 @@ def binary_dna(inp): #works
             outp += "Cytosine, "
         elif pair == "01":
             outp += "Guanine, "
+        else:
+            raise ValueError(f"Invalid binary pair: {pair}. Each pair must be 00, 11, 10, or 01.")
     return outp[:-2]  # Remove the trailing comma
 
 def str_dna(inp): # works
