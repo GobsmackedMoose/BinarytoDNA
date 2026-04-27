@@ -9,7 +9,12 @@ class Logic(QMainWindow, Ui_Form):
         super().__init__()
         self.setupUi(self)
         self.pushButton.clicked.connect(lambda: self.sub())
-        
+    
+     """
+     sub() is the main logic class for the application.
+     It handles the conversion between different data types, and error handling for invalid inputs.
+     All other pieces of logic except init are accessed from sub(). It also updates the output.csv. 
+     """
      def sub(self):
          inn = self.lineEdit.text()
          try:
@@ -19,7 +24,7 @@ class Logic(QMainWindow, Ui_Form):
             self.label_5.setText("Please select input and output types.")
          try: 
             self.label_5.setWordWrap(True)
-            self.label_5.setText("") #clear output before new output is put in
+            self.label_5.setText("") 
 
             if in_type == "Alphabet" and out_type == "Binary":
                output = str_binary(inn)
@@ -46,8 +51,6 @@ class Logic(QMainWindow, Ui_Form):
          except Exception as e:
             self.label_5.setText(f"An error occurred: {str(e)}")
 
-        #file writer
-
          if os.path.isfile("output.csv"):
 
             with open("output.csv", 'a', newline='') as file:
@@ -63,25 +66,32 @@ class Logic(QMainWindow, Ui_Form):
         
 
 
-
+"""
+    This function converts a binary input into a string. It splits input up into bytes because chr() only outputs single characters.
+"""
 def binary_str(inp):
-    print("binary to string")
-    print(inp)
     try: 
         output = ""
         for i in range(0, len(inp), 8):
             byte = inp[i:i+8]
-            output += chr(int(byte, 2)) # google gemini. also this is unicode, but its the same for regular utf 8 stuff so its good for my purposes. does allow for some odd characters but i will allow freedom of expression today.  
+            output += chr(int(byte, 2)) 
     except ValueError:
         raise ValueError("Invalid binary input. Please ensure the input is valid binary and is an appropriate length (each letter is 8 bits)")
     return output
 
-def str_binary(inp): #works
+"""
+    This function converts a string input into binary. 
+    Originally encode and decode functions were used but they returned b'' strings 
+"""
+
+def str_binary(inp): 
     out = ''.join(format(ord(char), '08b') for char in inp)
     return out
     #source: https://www.geeksforgeeks.org/python/python-convert-string-to-binary/ 
-
-def dna_binary(inp): # works
+"""
+    This function converts a DNA string into binary. It must be seperated by commas.
+"""
+def dna_binary(inp):
     inp = inp.lower().split(",")
     outp = ""
     for i in inp:
@@ -97,7 +107,12 @@ def dna_binary(inp): # works
             raise ValueError(f"Invalid DNA base: {i.strip()}. Please enter Adenine, Thymine, Cytosine, or Guanine.")
     return outp
 
-def binary_dna(inp): #works
+
+""" 
+    This function converts a binary input into a DNA string. It splits the input into pairs of bits and maps each pair to a DNA base.
+"""
+
+def binary_dna(inp): 
     outp = ""
     for i in range(0, len(inp), 2):
         pair = inp[i:i+2]
@@ -111,12 +126,18 @@ def binary_dna(inp): #works
             outp += "Guanine, "
         else:
             raise ValueError(f"Invalid binary input. Please ensure the input is valid binary.")
-    return outp[:-2]  # Remove the trailing comma
+    return outp[:-2]  # Removes the trailing comma
 
-def str_dna(inp): # works
+
+"""
+    This function converts a string into a DNA string. These were the last functions created, so they use the previous functions (string to binary and binary to dna) for their action. 
+"""
+def str_dna(inp): 
     inp = str_binary(inp)
     return binary_dna(inp)
-
-def dna_str(inp): # works. 
+"""
+    This function converts a DNA string into a string. It uses the previous functions (dna to binary and binary to string) for its action.
+"""
+def dna_str(inp):
     inp = dna_binary(inp)
     return binary_str(inp) 
