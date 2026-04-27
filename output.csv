@@ -50,3 +50,7 @@ rffdfdsfdsfsdsfdsdaf,DNA Bases to Binary,"Invalid DNA base: rffdfdsfdsfsdsfdsdaf
 01111111111,Binary to Alphabet,Ͽ
 011111111111,Binary to Alphabet,߿
 011111111111,Binary to Alphabet,߿
+fsdfdafdsfdsafd,Alphabet to DNA Bases,"Guanine, Cytosine, Guanine, Cytosine, Guanine, Thymine, Adenine, Thymine, Guanine, Cytosine, Guanine, Adenine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Adenine, Guanine, Cytosine, Adenine, Guanine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Adenine, Guanine, Thymine, Adenine, Thymine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Adenine, Guanine, Thymine, Adenine, Thymine, Guanine, Cytosine, Adenine, Guanine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Adenine"
+"guanine, cytosine, guanine, cytosine, guanine, cytosine, guanine, cytosine, guanine, cytosine, guanine, cytosine, guanine, cytosine, guanine, cytosine",DNA Bases to Alphabet,Invalid binary input. Please ensure the input is valid binary and is an appropriate length (each letter is 8 bits)
+"Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, ",DNA Bases to Alphabet,"Invalid DNA base: . Please enter Adenine, Thymine, Cytosine, or Guanine."
+"Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine, Guanine, Cytosine",DNA Bases to Alphabet,ffff

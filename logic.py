@@ -68,13 +68,13 @@ def binary_str(inp):
     print("binary to string")
     print(inp)
     try: 
-        output = chr(int(inp, 2)) # google gemini. also this is unicode, but its the same for regular utf 8 stuff so its good for my purposes. does allow for some odd characters but i will allow freedom of expression today.  
+        output = ""
+        for i in range(0, len(inp), 8):
+            byte = inp[i:i+8]
+            output += chr(int(byte, 2)) # google gemini. also this is unicode, but its the same for regular utf 8 stuff so its good for my purposes. does allow for some odd characters but i will allow freedom of expression today.  
     except ValueError:
         raise ValueError("Invalid binary input. Please ensure the input is valid binary and is an appropriate length (each letter is 8 bits)")
-    try: 
-        return output
-    except ValueError:
-        raise ValueError("Invalid binary input. Please ensure the input is valid binary.")
+    return output
 
 def str_binary(inp): #works
     out = ''.join(format(ord(char), '08b') for char in inp)
@@ -117,6 +117,6 @@ def str_dna(inp): # works
     inp = str_binary(inp)
     return binary_dna(inp)
 
-def dna_str(inp): # works
+def dna_str(inp): # works. 
     inp = dna_binary(inp)
     return binary_str(inp) 
