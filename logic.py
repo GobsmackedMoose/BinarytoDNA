@@ -70,6 +70,7 @@ class Logic(QMainWindow, Ui_Form):
     This function converts a binary input into a string. It splits input up into bytes because chr() only outputs single characters.
 """
 def binary_str(inp):
+    inp = inp.strip()
     try: 
         output = ""
         for i in range(0, len(inp), 8):
