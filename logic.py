@@ -10,12 +10,13 @@ class Logic(QMainWindow, Ui_Form):
         self.setupUi(self)
         self.pushButton.clicked.connect(lambda: self.sub())
     
-     """
-     sub() is the main logic class for the application.
-     It handles the conversion between different data types, and error handling for invalid inputs.
-     All other pieces of logic except init are accessed from sub(). It also updates the output.csv. 
-     """
+     
      def sub(self):
+         """
+            sub() is the main logic class for the application.
+            It handles the conversion between different data types, and error handling for invalid inputs.
+            All other pieces of logic except init are accessed from sub(). It also updates the output.csv. 
+         """
          inn = self.lineEdit.text()
          try:
             in_type = self.buttonGroup.checkedButton().text()
@@ -66,11 +67,14 @@ class Logic(QMainWindow, Ui_Form):
         
 
 
-"""
-    This function converts a binary input into a string. It splits input up into bytes because chr() only outputs single characters.
-"""
+
 def binary_str(inp):
-    inp = inp.strip()
+    """
+        This function converts a binary input into a string. It splits input up into bytes because chr() only outputs single characters.
+    """
+    inp = inp.replace(" ", "")
+    if len(inp) % 8 != 0:
+        raise ValueError("Invalid binary input. The input must be divisible by 8")
     try: 
         output = ""
         for i in range(0, len(inp), 8):
@@ -80,19 +84,21 @@ def binary_str(inp):
         raise ValueError("Invalid binary input. Please ensure the input is valid binary and is an appropriate length (each letter is 8 bits)")
     return output
 
-"""
-    This function converts a string input into binary. 
-    Originally encode and decode functions were used but they returned b'' strings 
-"""
+
 
 def str_binary(inp): 
+    """
+        This function converts a string input into binary. 
+        Originally encode and decode functions were used but they returned b'' strings 
+    """
     out = ''.join(format(ord(char), '08b') for char in inp)
     return out
     #source: https://www.geeksforgeeks.org/python/python-convert-string-to-binary/ 
-"""
-    This function converts a DNA string into binary. It must be seperated by commas.
-"""
+
 def dna_binary(inp):
+    """
+    This function converts a DNA string into binary. It must be seperated by commas.
+    """
     inp = inp.lower().split(",")
     outp = ""
     for i in inp:
@@ -109,12 +115,15 @@ def dna_binary(inp):
     return outp
 
 
-""" 
-    This function converts a binary input into a DNA string. It splits the input into pairs of bits and maps each pair to a DNA base.
-"""
+
 
 def binary_dna(inp): 
+    """ 
+    This function converts a binary input into a DNA string. It splits the input into pairs of bits and maps each pair to a DNA base.
+    """
     outp = ""
+    if len(inp) % 2 != 0:
+        raise ValueError("Invalid binary input. The input must be divisible by 2")
     for i in range(0, len(inp), 2):
         pair = inp[i:i+2]
         if pair == "00":
@@ -130,15 +139,17 @@ def binary_dna(inp):
     return outp[:-2]  # Removes the trailing comma
 
 
-"""
-    This function converts a string into a DNA string. These were the last functions created, so they use the previous functions (string to binary and binary to dna) for their action. 
-"""
+
 def str_dna(inp): 
+    """
+    This function converts a string into a DNA string. These were the last functions created, so they use the previous functions (string to binary and binary to dna) for their action. 
+    """
     inp = str_binary(inp)
     return binary_dna(inp)
-"""
-    This function converts a DNA string into a string. It uses the previous functions (dna to binary and binary to string) for its action.
-"""
+
 def dna_str(inp):
+    """
+    This function converts a DNA string into a string. It uses the previous functions (dna to binary and binary to string) for its action.
+    """
     inp = dna_binary(inp)
     return binary_str(inp) 
